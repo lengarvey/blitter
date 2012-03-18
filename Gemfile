@@ -16,6 +16,8 @@ gem "mongoid-rspec", ">= 1.4.4", :group => :test
 gem "factory_girl_rails", ">= 2.0.0.rc", :group => [:development, :test]
 gem "email_spec", ">= 1.2.1", :group => :test
 gem "guard", ">= 0.6.2", :group => :development  
+
+
 case HOST_OS
   when /darwin/i
     gem 'rb-fsevent', :group => :development
@@ -35,3 +37,4 @@ gem "bson_ext", ">= 1.6.1"
 gem "mongoid", ">= 2.4.6"
 gem "devise", ">= 2.1.0.rc"
 gem "twitter-bootstrap-rails", ">= 2.0.3", :group => :assets
+gem 'carrierwave-mongoid', :require => 'carrierwave/mongoid'

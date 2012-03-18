@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Body:
+  = @bleat.body
+
+= link_to 'Edit', edit_bleat_path(@bleat)
+\|
+= link_to 'Back', bleats_path

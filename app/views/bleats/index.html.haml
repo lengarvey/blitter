@@ -1,0 +1,8 @@
+%h1 Bleats
+- @bleats.each do |bleat|
+  .well.row
+    .span1= image_tag bleat.user.get_avatar_url, :width => 60
+    %h3= link_to  ">#{bleat.author}", "/users/#{bleat.user_id}"
+    .bleat= bleat.body
+
+= link_to 'New Bleat', new_bleat_path

@@ -1,0 +1,12 @@
+= form_for @bleat do |f|
+  -if @bleat.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@bleat.errors.count, "error")} prohibited this bleat from being saved:"
+      %ul
+        - @bleat.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = f.label :body
+    = f.text_field :body
+  .actions
+    = f.submit 'Save'

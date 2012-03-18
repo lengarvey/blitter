@@ -20,7 +20,16 @@
       .container
         .content
           .row
-            .span12
+            - if user_signed_in?
+              .span4
+                .profile
+                %ul.nav.nav-list
+                  %li
+                    = render 'bleats/form'
+                  %li.nav-header
+                    = image_tag current_user.get_avatar_url, :width => 80, :style => 'float:left'
+                    %h2= link_to ">#{current_user.name}", current_user
+            %div{:class => "#{(user_signed_in? && 'span8') || 'span12'}"}
               - flash.each do |name, msg|
                 %div{:class => "alert alert-#{name == :notice ? "success" : "error"}"}
                   %a.close{"data-dismiss" => "alert"} ×

@@ -1,0 +1,2 @@
+module BleatsHelper
+end

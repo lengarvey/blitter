@@ -1,3 +1,5 @@
+require 'carrierwave/mongoid'
+
 class User
   include Mongoid::Document
   # Include default devise modules. Others available are:
@@ -41,7 +43,18 @@ class User
   # field :authentication_token, :type => String
   field :name
   validates_presence_of :name
+  validates_format_of :name, :with => /\A\w+\Z/, :on => :create
   validates_uniqueness_of :name, :email, :case_sensitive => false
   attr_accessible :name, :email, :password, :password_confirmation, :remember_me
+  attr_accessible :image
+  attr_accessible :file
+
+  mount_uploader :image, ImageUploader
+
+  has_many :bleats
+
+  def get_avatar_url
+    image.url || "/img/blittie.jpg"
+  end
 end
 

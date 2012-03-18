@@ -2,6 +2,8 @@ require 'carrierwave/mongoid'
 
 class User
   include Mongoid::Document
+
+  field :_id, :type => String
   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
